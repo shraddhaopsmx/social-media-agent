@@ -33,6 +33,15 @@ const PY_LANGCHAIN_PACKAGES = [
   "langchain-anthropic",
 ];
 
+// Pre-compiled regex patterns to avoid ReDoS vulnerability
+const PY_LANGCHAIN_PACKAGE_REGEXES = [
+  /langgraph[-~=]+/,
+  /langchain-core[-~=]+/,
+  /langchain-community[-~=]+/,
+  /langchain-openai[-~=]+/,
+  /langchain-anthropic[-~=]+/,
+];
+
 const JS_PATH_QUERY = "filename:package.json";
 const PY_PATH_QUERY_REQUIREMENTS = "filename:requirements.txt";
 const PY_PATH_QUERY_PYPROJECT = "filename:pyproject.toml";
@@ -96,8 +105,8 @@ async function checkPythonDependencies(
     if (path.endsWith(".txt")) {
       const content = Buffer.from(data.content, "base64").toString();
       return PY_LANGCHAIN_PACKAGES.some(
-        (pkg) =>
-          content.includes(pkg) || new RegExp(`${pkg}[-~=]+`).test(content),
+        (pkg, index) =>
+          content.includes(pkg) || PY_LANGCHAIN_PACKAGE_REGEXES[index].test(content),
       );
     }
 
@@ -105,8 +114,8 @@ async function checkPythonDependencies(
     if (path.endsWith(".toml")) {
       const content = Buffer.from(data.content, "base64").toString();
       return PY_LANGCHAIN_PACKAGES.some(
-        (pkg) =>
-          content.includes(pkg) || new RegExp(`${pkg}[-~=]+`).test(content),
+        (pkg, index) =>
+          content.includes(pkg) || PY_LANGCHAIN_PACKAGE_REGEXES[index].test(content),
       );
     }
 
