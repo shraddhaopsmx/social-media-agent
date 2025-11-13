@@ -108,7 +108,9 @@ export async function findImages(state: typeof FindImagesAnnotation.State) {
         const getContents = await getFileContents(link, parsedPathname);
         imageUrls.add(getContents.download_url || fullUrl.href);
       } else {
-        fullUrl.pathname = path.join(fullUrl.pathname, urlOrPathname);
+        // Sanitize the pathname to prevent path traversal attacks
+        const sanitizedPathname = path.normalize(urlOrPathname).replace(/^(\.\.[\/\\])+/, '');
+        fullUrl.pathname = path.join(fullUrl.pathname, sanitizedPathname);
         imageUrls.add(fullUrl.href);
       }
     }
