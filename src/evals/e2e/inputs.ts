@@ -64,7 +64,7 @@ export const INPUTS = [
     },
     expected: {
       imageOptions: [
-        "https://private-user-images.githubusercontent.com/53030784/271793562-7538d25b-a2d4-4a2c-9601-fb4c7db3c0b6.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzYyOTU1MzUsIm5iZiI6MTczNjI5NTIzNSwicGF0aCI6Ii81MzAzMDc4NC8yNzE3OTM1NjItNzUzOGQyNWItYTJkNC00YTJjLTk2MDEtZmI0YzdkYjNjMGI2LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMDglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTA4VDAwMTM1NVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTk5ODA5OTNiNTIxYTMyYjJlMzY2ZDAwNWFlN2VjMjY5NTA0ODYzODUzYmQ2NGNlOWQ3YzMwMGVlYmQxOWNjZmMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.eGsdqf4MUPMnljz9_53yTh-FuUU3R0q2NW5s6lhWyBE",
+        "https://private-user-images.githubusercontent.com/53030784/271793562-7538d25b-a2d4-4a2c-9601-fb4c7db3c0b6.png",
         "https://verdyqfuvvtxtygqekei.supabase.co/storage/v1/object/public/images/screenshot-github.com-1736293541827.jpeg",
       ],
     },
