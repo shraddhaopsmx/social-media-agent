@@ -13,8 +13,10 @@ function isObjectExported(filePath, objectName) {
 
   try {
     const fileContent = fs.readFileSync(filePath, "utf8");
+    // Escape special regex characters in objectName to prevent ReDoS
+    const escapedObjectName = objectName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     const exportRegex = new RegExp(
-      `export\\s+(?:const|let|var)\\s+${objectName}\\s*=|export\\s+\\{[^}]*\\b${objectName}\\b[^}]*\\}`,
+      `export\\s+(?:const|let|var)\\s+${escapedObjectName}\\s*=|export\\s+\\{[^}]*\\b${escapedObjectName}\\b[^}]*\\}`,
     );
     return exportRegex.test(fileContent);
   } catch (error) {
