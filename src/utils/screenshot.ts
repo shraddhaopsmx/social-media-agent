@@ -125,7 +125,7 @@ export async function takeScreenshot(
   } catch (error: any) {
     await context.close();
     await browser.close();
-    console.error(`Failed to take screenshot of ${url}:`, error);
+    console.error("Failed to take screenshot of %s:", url, error);
     throw error;
   }
 }
